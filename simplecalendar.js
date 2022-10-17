@@ -5,7 +5,7 @@
 // @author sou1ka
 function SimpleCalendar(t, o) {
 	let prop = o || {};
-	this.target = document.querySelector(t);
+	this.target = (typeof t == 'string' ? document.querySelector(t) : t);
 	this.date = new Date();
 	this.today = prop.today ? new Date(prop.today) : new Date();
 	this.className = 'simplecalendar-container';
