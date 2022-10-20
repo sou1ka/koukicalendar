@@ -18,7 +18,6 @@ function SimpleCalendar(t, o) {
 	this.endOfDate = prop.endOfDate || '2050-12-31';
 	this.click = prop.click || function(e) {console.log(arguments);}
 	this.changeCalendar = prop.changeCalendar || function() {console.log(arguments);}
-	this.yearClick = prop.yearClick || function() {console.log(arguments);}
 
 	// 外側のコンテナ
 	this.outerDiv = document.createElement('div');
