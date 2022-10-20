@@ -18,6 +18,23 @@ function SimpleCalendar(t, o) {
 	this.endOfDate = prop.endOfDate || '2050-12-31';
 	this.click = prop.click || function(e) {console.log(arguments);}
 	this.changeCalendar = prop.changeCalendar || function() {console.log(arguments);}
+	this.emperorTime = prop.emperorTime || false;
+
+	this.getCalendarHeaderMonth = function(month) {
+		return this.monthNames[month-1];
+	}
+
+	this.getCalendarHeaderYear = function(year) {
+		return year;
+	}
+
+	if(this.emperorTime === true) {
+		this.weekNames = ['日', '月', '火', '水', '木', '金', '土'];
+		this.monthNames = ['睦月', '如月', '弥生', '卯月', '皐月', '水無月', '文月', '葉月', '長月', '神無月', '霜月', '師走'];
+		this.getCalendarHeaderYear = function(year) {
+			return year + 660;
+		}
+	}
 
 	// 外側のコンテナ
 	this.outerDiv = document.createElement('div');
@@ -113,14 +130,6 @@ function SimpleCalendar(t, o) {
 		sp.appendChild(document.createTextNode(' '));
 		sp.appendChild(y);
 		return sp;
-	}
-
-	this.getCalendarHeaderMonth = function(month) {
-		return this.monthNames[month-1];
-	}
-
-	this.getCalendarHeaderYear = function(year) {
-		return year;
 	}
 
 	this.showMonthSelector = function(e) {
