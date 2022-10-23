@@ -6,6 +6,7 @@
 function SimpleCalendar(t, o) {
 	let prop = o || {};
 	this.target = (typeof t == 'string' ? document.querySelector(t) : t);
+	this.targetId = (this.target.className ? '.' + this.target.className : '#' + this.target.id);
 	this.date = new Date();
 	this.today = prop.today ? new Date(prop.today) : new Date();
 	this.className = 'simplecalendar-container';
@@ -212,7 +213,7 @@ function SimpleCalendar(t, o) {
 		this.yearSelector.style.height = this.outerDiv.clientHeight + 'px';
 		this.yearSelector.style.backgroundColor = '#fff';
 		this.yearSelector.style.visibility = 'visible';
-		document.querySelector('.' + this.className + ' .yearselector .year-' + this.date.getFullYear()).scrollIntoView({behavior: 'smooth', block: 'center'});
+		document.querySelector(this.targetId  + ' .' + this.className + ' .yearselector .year-' + this.date.getFullYear()).scrollIntoView({behavior: 'smooth', block: 'center'});
 	}
 
 	this.yearSelectorClick = function(year, dataset, target, e) {
@@ -242,7 +243,7 @@ function SimpleCalendar(t, o) {
 		yearmonth.appendChild(this.setCalendarHeader(year, month));
 		this.ym.insertAdjacentElement('beforeend', yearmonth);
 
-		document.querySelector('.' + this.className + ' .weekbody').remove();
+		document.querySelector(this.targetId + ' .' + this.className + ' .weekbody').remove();
 		let weekbody = document.createElement('div');
 		weekbody.className = 'weekbody';
 		weekbody.style.display = 'flex';
@@ -295,7 +296,7 @@ function SimpleCalendar(t, o) {
 
 		for(let i = 0, cnt = holiday.length; i < cnt; i++) {
 			let h = holiday[i];
-			let t = document.querySelector('[data-date="' + h + '"]');
+			let t = document.querySelector(this.targetId + ' [data-date="' + h + '"]');
 			if(!t) { continue; }
 			t.parentNode.className += ' holiday'
 		}
@@ -309,7 +310,7 @@ function SimpleCalendar(t, o) {
 		let keys = Object.keys(datas);
 		for(let i = 0, cnt = keys.length; i < cnt; i++) {
 			let key = keys[i];
-			let t = document.querySelector('[data-date="' + key + '"]');
+			let t = document.querySelector(this.targetId + ' [data-date="' + key + '"]');
 			if(!t) { continue; }
 			t.dataset.datas = datas[key];
 			t.className += ' dataset';
