@@ -1,15 +1,15 @@
-// @name @SimpleCalendar
-// @version 1.0.4
-// @update 2022-10-16
+// @name @KoukiCalendar
+// @version 1.0.5
+// @update 2023-06-28
 // @homepage http://www.plasmasphere.net/
 // @author sou1ka
-function SimpleCalendar(t, o) {
+function KoukiCalendar(t, o) {
 	let prop = o || {};
 	this.target = (typeof t == 'string' ? document.querySelector(t) : t);
 	this.targetId = (this.target.className ? '.' + this.target.className : '#' + this.target.id);
 	this.date = new Date();
 	this.today = prop.today ? new Date(prop.today) : new Date();
-	this.className = 'simplecalendar-container';
+	this.className = 'koukicalendar-container';
 	this.weekCls = prop.monthCls || ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
 	this.weekNames = prop.weekNames || ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 	this.monthNames = prop.monthNames || ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];

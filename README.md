@@ -1,4 +1,4 @@
-### SimpleCalendar
+### 皇紀カレンダー
 
 Made with vanilla JavaScript.
 
@@ -6,19 +6,19 @@ Made with vanilla JavaScript.
 
 HTMLに読み込ませます。
 ```javascript
-<script type="text/javascript" src="simplecalendar.js" charset="utf-8"></script>
+<script type="text/javascript" src="koukicalendar.js" charset="utf-8"></script>
 ```
 
 カレンダーを表示したい箇所に何らかのタグを置いてクラスかIDを付けます。
 タグはdivでもいいです。なんでもいいです。
 ```javascript
-<span class="simplecalendar"></span>
+<span class="koukicalendar"></span>
 ```
 
 クラス、またはIDを指定してカレンダーを作成します。
 document.querySelector で処理しますので、それ用の定義を書いてください。
 ```javascript
-new SimpleCalendar('.simplecalendar')
+new koukicalendar('.koukicalendar')
 ```
 
 ### オプションパラメータ
@@ -26,7 +26,7 @@ new SimpleCalendar('.simplecalendar')
 カレンダーの設定を変更することができます。
 第二引数にハッシュマップで定義します。
 ```javascript
-new SimpleCalendar('.simplecalendar', {
+new koukicalendar('.koukicalendar', {
   today: new Date('2022-10-01')
 });
 ```
@@ -39,7 +39,7 @@ new SimpleCalendar('.simplecalendar', {
 対象の日にクラス名「today」が付与されます。
 
 ```javascript
-new SimpleCalendar('.simplecalendar', {
+new koukicalendar('.koukicalendar', {
   today: new Date('2022-10-01')
 });
 ```
@@ -52,7 +52,7 @@ Array に YYYY-mm-dd 形式で祝日の日を定義します。
 KSV で YYYY-mm-dd: 祝日名 でも定義できますが、祝日名は表示されず、Key の日付のみ処理します。
 
 ```javascript
-new SimpleCalendar('.simplecalendar', {
+new koukicalendar('.koukicalendar', {
   holiday: ['2022-01-01', '2022-01-02']
 });
 ```
@@ -63,7 +63,7 @@ KVS で定義します。
 Key で指定した対象の日付に dataset.datas = value で設定されます。
 
 ```javascript
-new SimpleCalendar('.simplecalendar', {
+new koukicalendar('.koukicalendar', {
   datas: {
     '2022-10-10': 'hogehoge',
     '2022-10-11': 'fugafuga',
@@ -77,7 +77,7 @@ new SimpleCalendar('.simplecalendar', {
 日付クリックで画面遷移したい場合に使えます。例えばブログ記事のリンク等に。
 
 ```javascript
-new SimpleCalendar('.simplecalendar', {
+new koukicalendar('.koukicalendar', {
   datas: {
     '2022-10-10': 'hogehoge',
     '2022-10-11': 'fugafuga',
@@ -95,7 +95,7 @@ new SimpleCalendar('.simplecalendar', {
 holiday や datas の内容を読み込む時に利用できます。
 
 ```javascript
-new SimpleCalendar('.simplecalendar', {
+new koukicalendar('.koukicalendar', {
   datas: {
     '2022-10-10': 'hogehoge',
     '2022-10-11': 'fugafuga',
@@ -112,7 +112,7 @@ new SimpleCalendar('.simplecalendar', {
 
 *emperorTime* [Boolean]
 
-年、月を皇歴（または皇紀、神武歴）で表示します。
+年、月を皇紀（または皇歴、神武歴）で表示します。
 内部では西暦に660年足しただけの表示です。
 true とすると以下が反映されます。
 
